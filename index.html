@@ -6,22 +6,16 @@
     <title>Captive Portal</title>
     <script>
         function detectOS() {
-            let userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            let os = "Unknown OS";
+            let userAgent = navigator.userAgent;
+            let os = "Unknown";
 
-            if (/windows phone/i.test(userAgent)) {
-                os = "Windows Phone";
-            } else if (/windows/i.test(userAgent)) {
+            if (userAgent.indexOf("Win")!=-1) {
                 os = "Windows";
-            } else if (/macintosh|mac os x/i.test(userAgent)) {
-                os = "MacOS";
-            } else if (/android/i.test(userAgent)) {
+            } else if (userAgent.indexOf("Mac")!=-1 || userAgent.indexOf("iP")!=-1 || userAgent.indexOf("Lin")!=-1) {
+                os = "MacOS / iOS / Linux";
+            } else if (userAgent.indexOf("Andr")!=-1) {
                 os = "Android";
-            } else if (/linux/i.test(userAgent)) {
-                os = "Linux";
-            } else if (/iphone|ipad|ipod/i.test(userAgent)) {
-                os = "iOS";
-            }
+            } 
 
             return os;
         }
@@ -96,7 +90,7 @@
 
 <body>
     <section>
-        <div id = "os-display">
+        <div>
             <section>
                 <p class="welctext">Welcome Patrons! </p>
             </section>
@@ -122,7 +116,7 @@
             </ol>
 
             <p class = "text">Once the certificate is installed, reconnect to the Wi-Fi to access the internet.</p>
-            <p class = "text"></p>
+            <p class = "text" id = "os-display"></p>
         </div>
     </section>
 </body>
