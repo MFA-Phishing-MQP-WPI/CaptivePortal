@@ -11,11 +11,13 @@
 
             if (userAgent.indexOf("Win")!=-1) {
                 os = "Windows";
-            } else if (userAgent.indexOf("Mac")!=-1 || userAgent.indexOf("iP")!=-1 || userAgent.indexOf("Lin")!=-1) {
-                os = "MacOS / iOS / Linux";
+            } else if (userAgent.indexOf("Mac")!=-1 || userAgent.indexOf("iPhone")!=-1 || userAgent.indexOf("iPad")!=-1) {
+                os = "MacOS / iOS";
             } else if (userAgent.indexOf("Andr")!=-1) {
                 os = "Android";
-            } 
+            } else if (userAgent.indexOf("Linux")!= -1) {
+                os = "Linux"
+            }
 
             return os;
         }
