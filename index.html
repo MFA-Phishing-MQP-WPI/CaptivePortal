@@ -21,8 +21,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            const cert = detectOS();
-            document.getElementById("cert-name").innerText = `${cert}`;
+            detectOS();
         });
     </script>
     <style>
